@@ -79,6 +79,13 @@ Clone this repository to your desired folder:
 - run `rubocop .` to check for linters
 - run `ruby list.rb` to run program
 
+### Run tests (For the linters added)
+
+These were linter tests mainly
+
+- run `rubocop . ` to run all linter checks
+- run `rubocop -A ` to fix all fixable errors
+
 <!-- AUTHOR -->
 
 ## 👥 Author <a name="authors"></a>
