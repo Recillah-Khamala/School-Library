@@ -1,10 +1,13 @@
-require './nameable'
+require_relative './nameable'
+
 # Make sure that your Person class inherits from Nameable
 class Person < Nameable
   attr_accessor :name, :age, :parent_permission
   attr_reader :id
 
-  def initialize(age, name = 'unknown', parent_permission = 'true')
+  def initialize(age, name = 'unknown', parent_permission: true)
+    super()
+
     @id = Random.rand(1...1000)
     @age = age
     @name = name
