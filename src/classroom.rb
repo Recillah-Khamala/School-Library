@@ -11,7 +11,7 @@ class Classroom
   end
 
   #   Create the has-many side (a classroom has many students).
-  def add_student(Student)
+  def add_student(student)
     @students.push(student) unless @students.include?(student)
     student.classroom = self
   end
