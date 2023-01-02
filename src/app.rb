@@ -44,25 +44,23 @@ class App
     opt = gets.chomp
     case opt
     when '1'
-      puts 'Age:'
+      print 'Age: '
       age = gets.chomp
-      puts 'Name:'
+      print 'Name: '
       name = gets.chomp
-      puts 'Has parental_permission? [Y/N]:'
-      parental_permission = gets.chomp
-      puts 'Classroom:'
-      classroom = gets.chomp
-      new_student = Student.new(age, name, parental_permission, classroom)
+      print 'Has parent_permission? [Y/N]: '
+      permission = gets.chomp.downcase == 'y' ? true : false
+      new_student = Student.new(age, name, parent_permission: permission)
       @people << new_student unless @people.include?(new_student)
-      puts "New student: #{name} aged: '#{age}' created successfully"
+      puts "New student #{name} aged '#{age}' created successfully"
     when '2'
-      puts 'Age:'
+      print 'Age: '
       age = gets.chomp
-      puts 'Name:'
+      print 'Name: '
       name = gets.chomp
-      puts 'Specialization'
+      print 'Specialization: '
       specialization = gets.chomp
-      new_teacher = Teacher.new(age, name, specialization)
+      new_teacher = Teacher.new(age, specialization, name)
       @people << new_teacher unless @people.include?(new_teacher)
       puts "New teacher #{name} created successfully"
     end
@@ -71,9 +69,9 @@ class App
   # Method for creating a book.
   def create_book()
     puts 'Create a new book'
-    puts 'Title:'
+    print 'Title:'
     title = gets.chomp
-    puts 'Author:'
+    print 'Author:'
     author = gets.chomp
 
     new_book = Book.new(title, author)
@@ -95,7 +93,7 @@ class App
     end
     person_data = gets.chomp.to_i
 
-    print 'Date:'
+    print 'Date: '
     date = gets.chomp
 
     rental = Rental.new(date, @books[book_data], @people[person_data])
@@ -105,9 +103,9 @@ class App
 
   # method for listing all rentals for a given person id
   def all_rentals_by_a_person()
-    print 'ID:'
+    print 'ID: '
     id = gets.chomp.to_i
-    puts 'Rentals:'
+    puts 'Rentals: '
     @rentals.each do |rental|
       if rental.person.id == id
         puts "Person: #{rental.person.name}
