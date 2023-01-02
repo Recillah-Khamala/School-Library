@@ -49,7 +49,7 @@ class App
       print 'Name: '
       name = gets.chomp
       print 'Has parent_permission? [Y/N]: '
-      permission = gets.chomp.downcase == 'y' ? true : false
+      permission = gets.chomp.downcase == 'y'
       new_student = Student.new(age, name, parent_permission: permission)
       @people << new_student unless @people.include?(new_student)
       puts "New student #{name} aged '#{age}' created successfully"
