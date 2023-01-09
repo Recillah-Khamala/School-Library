@@ -1,3 +1,4 @@
+require 'pry'
 require_relative './app'
 
 class Main
@@ -14,6 +15,7 @@ class Main
   def list_options
     space
     puts 'welcome To School Library App!'
+
     space
     while @response != 7
       puts 'Please choose an option by entering a number: '
