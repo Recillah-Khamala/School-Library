@@ -1,3 +1,4 @@
+require 'pry'
 require_relative './app'
 
 class Main
@@ -6,8 +7,16 @@ class Main
     @response = 0
   end
 
+  def space
+    char = '-'
+    puts char * 50
+  end
+
   def list_options
+    space
     puts 'welcome To School Library App!'
+
+    space
     while @response != 7
       puts 'Please choose an option by entering a number: '
       puts '1 - List all books'
@@ -25,13 +34,13 @@ class Main
     @response = gets.chomp.to_i
     case @response
     when 1
-      @app.list_all_books
+      @ap.list_all_books
     when 2
       @app.list_all_people
     when 3
       @app.create_person
     when 4
-      @app.create_book
+      @app.create_bok
     when 5
       @app.create_rental
     when 6

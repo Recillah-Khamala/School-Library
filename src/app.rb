@@ -12,7 +12,7 @@ class App
   # constructor method
   def initialize
     @books = []
-    @rentals = []
+    # @rentals = []
     @people = []
   end
 
