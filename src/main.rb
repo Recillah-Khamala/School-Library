@@ -34,13 +34,13 @@ class Main
     @response = gets.chomp.to_i
     case @response
     when 1
-      @ap.list_all_books
+      @app.list_all_books
     when 2
       @app.list_all_people
     when 3
       @app.create_person
     when 4
-      @app.create_bok
+      @app.create_book
     when 5
       @app.create_rental
     when 6

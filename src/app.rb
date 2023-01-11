@@ -4,15 +4,19 @@ require_relative './student'
 require_relative './teacher'
 require_relative './classroom'
 require_relative './person'
+require_relative './storage'
+require 'json'
 
 class App
   # setters and getters
   attr_accessor :books, :rentals, :people
 
+  include Data
+
   # constructor method
   def initialize
     @books = []
-    # @rentals = []
+    @rentals = []
     @people = []
   end
 
@@ -53,6 +57,7 @@ class App
       new_student = Student.new('classroom', age, name, parent_permission: permission)
       @people << new_student unless @people.include?(new_student)
       puts "New student #{name} aged '#{age}' created successfully"
+      save_person(@person)
     when '2'
       print 'Age: '
       age = gets.chomp
@@ -63,6 +68,7 @@ class App
       new_teacher = Teacher.new(age, specialization, name)
       @people << new_teacher unless @people.include?(new_teacher)
       puts "New teacher #{name} created successfully"
+      save_person(@person)
     end
   end
 
@@ -77,6 +83,7 @@ class App
     new_book = Book.new(title, author)
     @books << new_book unless @books.include?(new_book)
     puts "New book #{title} by #{author} created successfully"
+    save_book(@books)
   end
 
   # method for creating a rental.
@@ -99,6 +106,7 @@ class App
     rental = Rental.new(date, @books[book_data], @people[person_data])
     @rentals.push(rental)
     puts 'Rental created succssfully'
+    save_rental(@rentals)
   end
 
   # method for listing all rentals for a given person id

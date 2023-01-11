@@ -44,7 +44,7 @@ module Data
     end
 end
 
-require 'json'
-listbooks = File.open('./database/books.json')
-info = File.read('./database/books.json')
-puts JSON.parse(info).inspect
+# require 'json'
+# listbooks = File.open('./database/books.json')
+# info = File.read('./database/books.json')
+# puts JSON.parse(info).inspect
