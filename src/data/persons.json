@@ -1,0 +1,17 @@
+[
+    { 
+        "type": "Student",
+        "name": "Alice", 
+        "age": "25",
+        "id": "764",
+        "classroom": "12B",
+        "parent_permission": "true"
+    },
+    { 
+        "type": "Teacher",
+        "name": "Bob", 
+        "id": "35",
+        "age": "30",
+        "specialization": "Math"
+    }
+]
