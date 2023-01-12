@@ -27,9 +27,9 @@ class Main
 
   def list_options
     welcome
-    
+
     puts '
-    Please choose an option by entering a number: 
+    Please choose an option by entering a number:
     1 - List all books
     2 - List all people
     3 - Create person
@@ -37,7 +37,7 @@ class Main
     5 - Create a rental
     6 - List all rentals for a given person id
     7 - Exit'
-    
+
     print 'Option: '
     response = gets.chomp.to_i
     return exit_app if option == 7
@@ -59,7 +59,7 @@ class Main
       @app.create_rental
     when 6
       @app.all_rentals_by_a_person
-    else 
+    else
       puts 'Choise not listed!'
     end
 
