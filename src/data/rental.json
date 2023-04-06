@@ -1,0 +1,12 @@
+[
+    { 
+        "date": "1/7/2023",
+        "person_id": "764",
+        "book": "The Great Gatsby" 
+    },
+    { 
+        "date": "1/13/2023",
+        "person_id": "35",
+        "book": "Moby-Dick" 
+     }
+]

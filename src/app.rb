@@ -4,6 +4,8 @@ require_relative './student'
 require_relative './teacher'
 require_relative './classroom'
 require_relative './person'
+require_relative './storage'
+require 'json'
 
 class App
   # setters and getters
@@ -12,8 +14,8 @@ class App
   # constructor method
   def initialize
     @books = []
-    # @rentals = []
     @people = []
+    @rentals = []
   end
 
   # method for listing all books.
@@ -82,16 +84,12 @@ class App
   # method for creating a rental.
   def create_rental()
     puts 'Select a book from the following list by number'
-    @books.each_with_index do |book, index|
-      puts "#{index} Title: '#{book.title}', Author: '#{book.author}'"
-    end
-    book_data = gets.chomp.to_i
+    list_all_books
+    book_data = get_user_input_as_int('book_data: ')
 
     puts 'Select a person from the following list by number'
-    @people.each_with_index do |person, index|
-      puts "#{index} [#{person.class}] Name: #{person.name}, ID:#{person.id}, Age: #{person.age}"
-    end
-    person_data = gets.chomp.to_i
+    list_all_people
+    person_data = get_user_input_as_int('person_data: ')
 
     print 'Date: '
     date = gets.chomp
